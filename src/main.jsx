@@ -1,10 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+//import { HooksApp } from './HooksApp'
+//import { CounterApp } from './01-useState/CounterApp'
+//import { CounterCustomHook } from './01-useState/CounterCustomHook';
+import { SimpleForm } from './02-useEffect/SimpleForm';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    // <StrictMode>
+    <SimpleForm />
+    /* </StrictMode> */
+);

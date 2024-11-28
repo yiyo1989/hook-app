@@ -8,9 +8,24 @@ export const useFetch = (url) => {
     errorDetail: null,
   });
 
+  const setLoadingState = () => {
+    setstate({
+      data: null,
+      isLoading: true,
+      hasError: false,
+      errorDetail: null,
+    });
+  };
+
   useEffect(() => {
     async function getFetch() {
+      //inicicializar variables
+      setLoadingState();
+
       const resp = await fetch(url);
+
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
       if (!resp.ok) {
         setstate({
           data: null,
@@ -22,7 +37,7 @@ export const useFetch = (url) => {
           },
         });
       } else {
-        const dataResp = await resp.json;
+        const dataResp = await resp.json();
         setstate({
           data: dataResp,
           isLoading: false,

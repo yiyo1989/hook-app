@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export const PokemonCard = ({ id, name, sprites = [] }) => {
   return (
     <section style={{ height: 200 }}>
@@ -11,4 +13,8 @@ export const PokemonCard = ({ id, name, sprites = [] }) => {
       </div>
     </section>
   );
+};
+
+PokemonCard.propTypes = {
+  name: PropTypes.string,
 };

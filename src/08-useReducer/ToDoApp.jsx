@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import { ToDoList } from "./ToDoList";
 import { toDoReducer } from "./toDoReducer";
+import { ToDoAdd } from "./ToDoAdd";
 
 const initialState = [
   {
@@ -18,6 +19,13 @@ const initialState = [
 export const ToDoApp = () => {
   const [toDos, dispatch] = useReducer(toDoReducer, initialState);
 
+  const onHandleToDoNew = (toDo) => {
+    dispatch({
+      type: "add",
+      payload: toDo,
+    });
+  };
+
   return (
     <>
       <h1>
@@ -30,6 +38,9 @@ export const ToDoApp = () => {
       <div className="row">
         <div className="col-7">
           <ToDoList toDos={toDos} />
+        </div>
+        <div className="col-5">
+          <ToDoAdd onSubmit={onHandleToDoNew} />
         </div>
       </div>
     </>
